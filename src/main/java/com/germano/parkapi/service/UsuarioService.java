@@ -2,9 +2,9 @@ package com.germano.parkapi.service;
 
 import com.germano.parkapi.entity.Usuario;
 import com.germano.parkapi.repository.UsuarioRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -15,5 +15,12 @@ public class UsuarioService {
     @Transactional
     public Usuario salvar(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+
+    @Transactional(readOnly = true)
+    public Usuario buscarPorId(Long id) {
+        return usuarioRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("Usuário não encontrado!")
+        );
     }
 }
