@@ -2,6 +2,7 @@ package com.germano.parkapi.service;
 
 import com.germano.parkapi.entity.Usuario;
 import com.germano.parkapi.exception.EntityNotFoundException;
+import com.germano.parkapi.exception.PasswordInvalidException;
 import com.germano.parkapi.exception.UsernameUniqueViolationException;
 import com.germano.parkapi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,12 +36,12 @@ public class UsuarioService {
     @Transactional
     public Usuario editarSenha(Long id, String senhaAtual, String novaSenha, String confirmaSenha) {
         if (!novaSenha.equals(confirmaSenha)) {
-            throw new RuntimeException("Nova senha e confirmação de senha não conferem!");
+            throw new PasswordInvalidException("Nova senha e confirmação de senha não conferem!");
         }
 
         Usuario user = buscarPorId(id);
         if (!user.getPassword().equals(senhaAtual)) {
-            throw new RuntimeException("Senha atual incorreta!");
+            throw new PasswordInvalidException("Senha atual incorreta!");
         }
 
         user.setPassword(novaSenha);
