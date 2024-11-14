@@ -8,6 +8,7 @@ import com.germano.parkapi.web.dto.UsuarioSenhaDto;
 import com.germano.parkapi.web.dto.mapper.UsuarioMapper;
 import com.germano.parkapi.web.exception.ErrorMessage;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -71,6 +72,12 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
+    @Operation(summary = "Listas todos os usuários", description = "Recurso para listar todos os usuários cadastraados",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Recursos recuperados com sucesso",
+                            content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = UsuarioResponseDto.class)))),
+            })
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDto>> getAll() {
         List<Usuario> users = usuarioService.buscarTodos();
