@@ -1,3 +1,3 @@
-insert into USUARIOS (id, username, password, role) values (100, 'ana@gmail.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_ADMIN');
-insert into USUARIOS (id, username, password, role) values (101, 'bia@gmail.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_CLIENTE');
-insert into USUARIOS (id, username, password, role) values (102, 'bob@gmail.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_CLIENTE');
+insert into USUARIOS (id, username, password, role) values (100, 'ana@email.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_ADMIN');
+insert into USUARIOS (id, username, password, role) values (101, 'bia@email.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_CLIENTE');
+insert into USUARIOS (id, username, password, role) values (102, 'bob@email.com', '$2a$12$34lzi2T8FTauon6UVDBwSeuDJVyALFgLCWZiG.TtxfwYYOuCbJBNi', 'ROLE_CLIENTE');
